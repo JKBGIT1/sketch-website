@@ -11,6 +11,7 @@ import WOLFvetranie from "../certs/jpg/WOLFvetranie.jpg";
 import WOLFvykurovanie from "../certs/jpg/WOLFvykurovanie.jpg";
 
 class Certs extends React.Component {
+    // funkcia vrati objekt s CSS stylom, ktory vyuziva kazdy jeden obrazok certifikatu
     createStyle = () => {
         return {
             width: "100%",
@@ -21,6 +22,8 @@ class Certs extends React.Component {
     }
 
     render(){
+        // marginTop: 64px je potrebny na oddelenie AppBaru od Grid containeru pre certifikaty
+        // pre kazdy Grid item v ktorom sa zobrazi obrazok certifikatu sa zavola funckia createStyle() pre nadstavenie CSS
         return (
             <Grid item container spacing={2} xs={12} md={10} style={{marginTop: "64px"}}>
                 <Grid item xs={12} sm={6} md={4}>

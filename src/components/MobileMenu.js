@@ -7,8 +7,11 @@ class MobileMenu extends React.Component {
         super(props);
     }
 
+    // ak je hodnota page true, tak sa zobrazi domovska stranka
+    // inak sa zobrazi stranka s certifikatmi
+    // podla elementId sa zameria obrazovka na konretny element na stranke
     websiteNavigation = (elementId, page) => {
-        this.props.menuButtonClicked();
+        this.props.menuButtonClicked(); // po kliknuti na jeden z buttonov v mobile menu sa menu automaticky zavrie
         if (page)
             this.props.changeToHomePage(elementId);
         else
@@ -24,11 +27,36 @@ class MobileMenu extends React.Component {
 
         return (
             <Grid item container direction={"column"} alignItems={"center"}>
-                <Button style={myStyle} color={"inherit"} onClick={() => this.websiteNavigation("#top", true)}>Domov</Button>
-                <Button style={myStyle} color={"inherit"} onClick={() => this.websiteNavigation("#onas", true)}>O nás</Button>
-                <Button style={myStyle} color={"inherit"} onClick={() => this.websiteNavigation("#top", false)}>Certifikáty</Button>
-                <Button style={myStyle} color={"inherit"} onClick={() => this.websiteNavigation("#kontakt", true)}>Kontakt</Button>
-                <Button style={myStyle} color={"inherit"} onClick={() => window.open(locationUrl, "_self")}>Poloha</Button>
+                <Button
+                    style={myStyle}
+                    color={"inherit"}
+                    onClick={() => this.websiteNavigation("#top", true)}> {/* page=true, prepne sa na domovsku stranku, a zameria sa na element s id="top" */}
+                    Domov
+                </Button>
+                <Button
+                    style={myStyle}
+                    color={"inherit"}
+                    onClick={() => this.websiteNavigation("#onas", true)}> {/* page=true, prepne sa na domovsku stranku, a zameria sa na element s id="onas" */}
+                    O nás
+                </Button>
+                <Button
+                    style={myStyle}
+                    color={"inherit"}
+                    onClick={() => this.websiteNavigation("#top", false)}> {/* page=false, prepne sa na stranku s certifikatmi, a zameria sa na element s id="top" */}
+                    Certifikáty
+                </Button>
+                <Button
+                    style={myStyle}
+                    color={"inherit"}
+                    onClick={() => this.websiteNavigation("#kontakt", true)}> {/* page=true, prepne sa na domovsku stranku, a zameria sa na element s id="kontakt" */}
+                    Kontakt
+                </Button>
+                <Button
+                    style={myStyle}
+                    color={"inherit"}
+                    onClick={() => window.open(locationUrl, "_self")}> {/* Stranka sa zmeni na google maps s polohou firmy */}
+                    Poloha
+                </Button>
             </Grid>
         )
     }

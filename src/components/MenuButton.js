@@ -11,6 +11,7 @@ class MenuButton extends React.Component {
     render() {
         return (
             <Grid item>
+                {/* Ked kliknem na ikonu s menu, tak sa zobrazi alebo zavrie MobileMenu */}
                 <IconButton color={"inherit"} onClick={this.props.menuButtonClicked}>
                     <MenuIcon fontSize={"large"}/>
                 </IconButton>
