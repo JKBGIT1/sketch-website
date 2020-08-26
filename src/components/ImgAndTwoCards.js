@@ -2,6 +2,7 @@ import Grid from "@material-ui/core/Grid";
 import MyCard from "./MyCard";
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
+import Fade from "@material-ui/core/Fade";
 
 const useStyles = makeStyles(() => ({
     plynImg: {
@@ -21,7 +22,9 @@ const ImgAndTwoCards = () => {
     return (
         <Grid item container md={12}>
             <Grid item md={8} className={classes.gridPadding} >
-                <img className={classes.plynImg} src={require("../imgs/plyn.jpg")} alt={"Šporák"}/>
+                <Fade in={true} timeout={1000}>
+                    <img className={classes.plynImg} src={require("../imgs/plyn.jpg")} alt={"Šporák"}/>
+                </Fade>
             </Grid>
             <Grid item container md={4}>
                 <Grid item xs={6} sm={6} md={12} className={classes.gridPadding} >

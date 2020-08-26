@@ -1,6 +1,7 @@
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import React from "react";
+import Slide from "@material-ui/core/Slide";
 
 class MobileMenu extends React.Component {
     constructor(props) {

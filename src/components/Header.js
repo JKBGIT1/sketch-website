@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import MobileMenu from "./MobileMenu";
 import NavbarMenu from "./NavbarMenu";
 import MenuButton from "./MenuButton";
+import Slide from "@material-ui/core/Slide";
 
 class Header extends React.Component {
     constructor() {
@@ -49,11 +50,14 @@ class Header extends React.Component {
                         {/* Ak je hodnota mobileMenu true, tak sa zobrazi menu pre mensie zariadenia v opacnom pripade sa nezobrazi nic */}
                         {/* Ovlada sa to pomocou klikania na menu ikonu */}
                         {this.state.mobileMenu ?
-                            <MobileMenu
-                                menuButtonClicked={this.menuButtonClicked}
-                                changeToCerts={this.props.changeToCerts}
-                                changeToHomePage={this.props.changeToHomePage}
-                            /> : null}    {/* Ked pouzivatel klikne na menu ikonku, tak sa zobrazi menu */}
+                            <Slide in={true} direction={"down"} timeout={1000}>
+                                <MobileMenu
+                                    menuButtonClicked={this.menuButtonClicked}
+                                    changeToCerts={this.props.changeToCerts}
+                                    changeToHomePage={this.props.changeToHomePage}
+                                />
+                            </Slide>
+                            : null}    {/* Ked pouzivatel klikne na menu ikonku, tak sa zobrazi menu */}
                     </Grid>
                 </AppBar>
             </Grid>

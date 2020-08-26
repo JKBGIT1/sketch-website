@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Certs from "./components/Certs";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import {Breakpoints as breakpoints} from "@material-ui/core/styles/createBreakpoints";
+import Slide from "@material-ui/core/Slide";
 
 const defaultTheme = createMuiTheme();
 const theme = createMuiTheme({
@@ -73,6 +74,7 @@ class App extends React.Component {
     render(){
         return (
             <MuiThemeProvider theme={theme}> {/* V tejto theme su zmenene velkosti nadpisov podla breakpointov */}
+            <Slide in={true} direction={"bottom"} timeout={1000}>
                 <Grid container id={"#top"} direction={"column"} justify={"center"} alignItems={"center"}>
                     <Header
                         screenWidth={this.state.screenWidth}
@@ -84,6 +86,7 @@ class App extends React.Component {
                     {/* Ak som na homepage, tak sa vyrenderuje Footer, pre stranku s certifikatmi sa vyrenderuje nic */}
                     {!this.state.certs ? <Footer/> : null}
                 </Grid>
+            </Slide>
             </MuiThemeProvider>
         );
     }
